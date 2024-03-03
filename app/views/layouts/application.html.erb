@@ -18,7 +18,7 @@
 <!--header-->
     <header class="bg-dark">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
+        <div class="container">
           <a href="/" class="navbar-brand p-2 text-white">Bookers</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
                     <i class="fa-solid fa-house"></i> Home
                   <% end %>
                 <li class"nav-item">
-                  <%= link_to homes_about_path, class: "nav-link text-light" do %>
+                  <%= link_to home_about_path, class: "nav-link text-light" do %>
                     <i class="fa-solid fa-link"></i> About
                   <% end %>
                 </li>
@@ -73,6 +73,11 @@
     </header>
 <!--main-->
     <main>
+      <div class="Notification">
+       <% flash.each do |key, value| %>
+       <%= content_tag :div, value, class: key %>
+       <% end %>
+      </div>
       <div class="container p-3">
         <%= yield %>
       </div>

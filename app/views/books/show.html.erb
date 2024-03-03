@@ -9,14 +9,15 @@
       <tbody>
         <tr>
           <td>
-            <%= image_tag @book.user.get_profile_image(100,100) %></br>
-            <%=link_to @book.user.name, user_path(@user.id), method: :get %>
+            <%=link_to user_path(@user.id), method: :get do %>
+            <%= image_tag @book.user.get_profile_image(100,100) %></br><%= @book.user.name %>
+            <% end %>
           </td>
           <td><%= @book.title %></td>
           <td><%= @book.body %></td>
           <% if @user == current_user %>
             <td><%= link_to "Edit", edit_book_path, method: :get, class: "btn btn-sm btn-success" %></td>
-            <td><%= link_to "destroy", book_path, method: :delete, class: "btn  btn-sm btn-danger" %></td>
+            <td><%= link_to "Destroy", book_path, method: :delete, class: "btn  btn-sm btn-danger", data: {confirm: "削除しますか？"} %></td>
           <% end %>
         </tr>
       </tbody>
