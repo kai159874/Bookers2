@@ -1,20 +1,25 @@
-<%= render "users/user_info", user: @user %>
-
-<%= render "books/new_book" %>
-
-
-<p>Book detail</p>
-<table class="table">
-  <tbody>
-    <tr>
-      <td>
-        <%= image_tag @book.user.get_profile_image(100,100) %></br>
-        <%=link_to @book.user.name, user_path(@user.id), method: :get %>
-      </td>
-      <td><%= @book.title %></td>
-      <td><%= @book.body %></td>
-      <td><%= link_to "Edit", edit_book_path, method: :get%></td>
-      <td><%= link_to "destroy", book_path, method: :delete %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-3">
+    <%= render "users/user_info", user: @user %>
+    <%= render "books/new_book" %>
+  </div>
+  <div class="col-md-8 offset-md-1">
+    <h2>Book detail</h2>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>
+            <%= image_tag @book.user.get_profile_image(100,100) %></br>
+            <%=link_to @book.user.name, user_path(@user.id), method: :get %>
+          </td>
+          <td><%= @book.title %></td>
+          <td><%= @book.body %></td>
+          <% if @user == current_user %>
+            <td><%= link_to "Edit", edit_book_path, method: :get, class: "btn btn-sm btn-success" %></td>
+            <td><%= link_to "destroy", book_path, method: :delete, class: "btn  btn-sm btn-danger" %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

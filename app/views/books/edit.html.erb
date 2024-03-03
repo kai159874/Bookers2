@@ -1,19 +1,26 @@
-<h1>Editing book</h1>
-<%= form_with model: @book, local: true do |f| %>
-   <div class="field">
-    <%= f.label :title, "Title" %><br />
-    <%= f.text_field :title %>
-  </div>
+<div class="row">
+  <div class="col-lg-6 col-md-8 col-sm-10 mx-auto px-4">
+    <h1>Editing book</h1>
+    <%= form_with model: @book, local: true do |f| %>
+       <div class="field">
+        <%= f.label :title, "Title" %><br />
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :body, "Opinion" %><br />
-    <%= f.text_area :body %>
-  </div>
+      <div class="field mt-2">
+        <%= f.label :body, "Opinion" %><br />
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Update Book" %>
-  </div>
-<% end %>
+      <div class="actions">
+        <%= f.submit "Update Book", class: "btn btn-success my-3" %>
+      </div>
+    <% end %>
 
-<%= link_to "Show", url: book_path %>
-<%= link_to "back", url: books_path %>
+    <div class="d-flex">
+      <%= link_to "Show", url: book_path %>
+      <p class="px-2">|</p>
+      <%= link_to "back", url: books_path %>
+    </div>
+  </div>
+</div>

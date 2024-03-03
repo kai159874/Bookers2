@@ -17,10 +17,10 @@
   <body>
 <!--header-->
     <header class="bg-dark">
-      <nav class="navbar navbar-expand-lg navbar-light text-light">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a href="/" class="navbar-brand p-2 text-white">Bookers</a>
-          <button class="navbar-toggler border-secondary btn-light" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -73,7 +73,9 @@
     </header>
 <!--main-->
     <main>
-      <%= yield %>
+      <div class="container p-3">
+        <%= yield %>
+      </div>
     </main>
 <!--footer-->
     <footer>
